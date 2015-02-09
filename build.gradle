@@ -1,0 +1,101 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'scala'
+apply plugin: 'forge'
+
+ext.build = System.getenv().BUILD_NUMBER ?: 'git'
+
+ext.modversion = "${project.version_major}.${project.version_minor}.${project.version_micro}.${build}"
+
+version = "1.0.0"
+group= "com.tattyseal.hgp"
+archivesBaseName = "hgp"
+
+minecraft {
+    version = "1.7.10-10.13.2.1231"
+    assetDir = "eclipse/assets"
+}
+
+apply plugin: 'curseforge'
+
+if (project.hasProperty('api_key_curseforge') && project.hasProperty('extra_curseforge_id')) {
+    curse {
+        releaseType = project.hasProperty('extra_curseforge_releasetype') ? project.extra_curseforge_releasetype : 'release'
+        apiKey = project.api_key_curseforge
+        projectId = project.extra_curseforge_id
+        changelog = ''
+    }
+}
+
+dependencies {
+
+}
+
+def commonManifest = {
+    if (project.hasProperty('extra_fmlat')) {
+        attributes 'FMLAT': project.extra_fmlat
+    }
+}
+
+jar {
+    classifier = project.hasProperty('extra_classifier') ? project.extra_classifier : 'universal'
+    manifest commonManifest
+}
+
+task devJar(dependsOn: 'classes', type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+    manifest commonManifest
+}
+
+task sourceJar(dependsOn: 'classes', type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'src'
+    manifest commonManifest
+}
+
+task propFile(dependsOn: 'classes') {
+	String string = "version.dependency=MC " + version_minecraft + "\nversion.dependency=Forge " + version_forge + "\nversion.name=" + modversion
+	File file = new File('build/libs/build.properties')
+	file.delete()
+	file.getParentFile().mkdirs()
+	file.createNewFile()
+	
+	file << string
+	return file
+}
+
+artifacts {
+    archives devJar
+    archives sourceJar
+	propFile
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
