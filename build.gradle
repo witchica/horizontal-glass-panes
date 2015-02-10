@@ -20,14 +20,21 @@ apply plugin: 'forge'
 
 ext.build = System.getenv().BUILD_NUMBER ?: 'git'
 
-ext.modversion = "${project.version_major}.${project.version_minor}.${project.version_micro}.${build}"
+ext.version_major=1
+ext.version_minor=1
+ext.version_micro=0
+ext.version_minecraft="1.7.10"
+ext.version_forge="10.13.2.1291"
+ext.version_minforge="10.13.0.1185"
 
-version = "1.0.0"
+
+
+version = "${version_major}.${version_minor}.${version_micro}.${build}"
 group= "com.tattyseal.hgp"
-archivesBaseName = "hgp"
+archivesBaseName = "hgp-" + version_minecraft
 
 minecraft {
-    version = "1.7.10-10.13.2.1231"
+    version = "1.7.10-10.13.2.1291"
     assetDir = "eclipse/assets"
 }
 
@@ -70,7 +77,7 @@ task sourceJar(dependsOn: 'classes', type: Jar) {
 }
 
 task propFile(dependsOn: 'classes') {
-	String string = "version.dependency=MC " + version_minecraft + "\nversion.dependency=Forge " + version_forge + "\nversion.name=" + modversion
+	String string = "version.dependency=MC " + version_minecraft + "\nversion.dependency=Forge " + version_forge + "\nversion.name=" + version
 	File file = new File('build/libs/build.properties')
 	file.delete()
 	file.getParentFile().mkdirs()

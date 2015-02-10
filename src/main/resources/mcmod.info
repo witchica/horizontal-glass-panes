@@ -1,0 +1,16 @@
+[
+    {
+      "modid": "hgp",
+      "name": "Horizontal Glass Panes",
+      "description": "Does what it says on the tin.",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "url": "",
+      "updateUrl": "",
+      "authorList": ["tattyseal"],
+      "credits": "Mark_R for the idea.",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": []
+    }
+]

@@ -4,6 +4,7 @@ import com.tattyseal.hgp.block.{ItemBlockStainedBlock, BlockStainedPane, BlockPa
 import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.init.Blocks
 import net.minecraft.item.ItemStack
+import net.minecraftforge.oredict.OreDictionary
 
 object HGPRegistry 
 {
@@ -21,5 +22,9 @@ object HGPRegistry
     }
 
     GameRegistry.addShapedRecipe(new ItemStack(blockPane, 3), "PPP".asInstanceOf[Object], 'P'.asInstanceOf[Object], new ItemStack(Blocks.glass_pane, 1).asInstanceOf[Object]);
+
+    OreDictionary.registerOre("paneGlassColorless", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("paneGlass", new ItemStack(blockColoredPane, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("paneGlass", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
   }
 }
