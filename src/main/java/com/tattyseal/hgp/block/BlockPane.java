@@ -107,7 +107,7 @@ public class BlockPane extends Block
 	}
 	
 	@Override
-	public boolean isSolidFullCube() 
+	public boolean isFullCube() 
 	{
 		return false;
 	}
