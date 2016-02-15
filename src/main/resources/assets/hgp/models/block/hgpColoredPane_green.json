@@ -1,0 +1,7 @@
+{
+    "parent": "hgp:block/pane_b",
+    "textures": {
+        "edge": "blocks/glass_green",
+        "pane": "blocks/glass_green"
+    }
+}

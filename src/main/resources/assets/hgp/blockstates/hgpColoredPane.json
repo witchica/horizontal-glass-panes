@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "color=white": { "model":"hgp:hgpColoredPane_white" },
+        "color=orange": { "model":"hgp:hgpColoredPane_orange" },
+        "color=magenta": { "model":"hgp:hgpColoredPane_magenta" },
+        "color=lightblue": { "model":"hgp:hgpColoredPane_lightblue" },
+        "color=yellow": { "model":"hgp:hgpColoredPane_yellow" },
+        "color=lime": { "model":"hgp:hgpColoredPane_lime" },
+        "color=pink": { "model":"hgp:hgpColoredPane_pink" },
+        "color=gray": { "model":"hgp:hgpColoredPane_gray" },
+        "color=lightgray": { "model":"hgp:hgpColoredPane_lightgray" },
+        "color=cyan": { "model":"hgp:hgpColoredPane_cyan" },
+        "color=purple": { "model":"hgp:hgpColoredPane_purple" },
+        "color=blue": { "model":"hgp:hgpColoredPane_blue" },
+        "color=brown": { "model":"hgp:hgpColoredPane_brown" },
+        "color=green": { "model":"hgp:hgpColoredPane_green" },
+        "color=red": { "model":"hgp:hgpColoredPane_red" },
+        "color=black": { "model":"hgp:hgpColoredPane_black" }
+    }
+}

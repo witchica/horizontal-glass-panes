@@ -1,5 +1,5 @@
 {
-    "parent": "hgp:block/hgpPane",
+    "parent": "hgp:block/hgpColoredPane_purple",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

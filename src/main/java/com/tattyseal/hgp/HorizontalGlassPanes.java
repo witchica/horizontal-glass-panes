@@ -2,10 +2,12 @@ package com.tattyseal.hgp;
 
 import com.tattyseal.hgp.block.BlockPane;
 import com.tattyseal.hgp.block.BlockStainedPane;
+import com.tattyseal.hgp.item.ItemBlockPane;
 import com.tattyseal.hgp.item.ItemBlockStainedBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -33,7 +35,7 @@ public class HorizontalGlassPanes
 	@EventHandler
 	public void init(FMLInitializationEvent init)
 	{
-		GameRegistry.registerBlock(blockPane, "hgpPane");
+		GameRegistry.registerBlock(blockPane, ItemBlockPane.class, "hgpPane");
 	    GameRegistry.registerBlock(blockColoredPane, ItemBlockStainedBlock.class, "hgpColoredPane");
 
 	    for(int i = 0; i < 16; i++)
@@ -48,5 +50,32 @@ public class HorizontalGlassPanes
 	    OreDictionary.registerOre("paneGlass", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
 
 	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(blockPane), 0, new ModelResourceLocation("hgp:hgpPane", "inventory"));
+	    Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(blockPane), 1, new ModelResourceLocation("hgp:hgpPane_iron", "inventory"));
+	    
+	    String[] colors = new String[] {
+	    		"hgp:hgpColoredPane_white", 
+	    		"hgp:hgpColoredPane_orange", 
+	    		"hgp:hgpColoredPane_magenta", 
+	    		"hgp:hgpColoredPane_lightblue", 
+	    		"hgp:hgpColoredPane_yellow", 
+	    		"hgp:hgpColoredPane_lime", 
+	    		"hgp:hgpColoredPane_pink", 
+	    		"hgp:hgpColoredPane_gray", 
+	    		"hgp:hgpColoredPane_lightgray", 
+	    		"hgp:hgpColoredPane_cyan", 
+	    		"hgp:hgpColoredPane_purple", 
+	    		"hgp:hgpColoredPane_blue", 
+	    		"hgp:hgpColoredPane_brown", 
+	    		"hgp:hgpColoredPane_green", 
+	    		"hgp:hgpColoredPane_red", 
+	    		"hgp:hgpColoredPane_black"};
+	    
+	    ModelBakery.addVariantName(Item.getItemFromBlock(blockColoredPane), colors[0], colors[1], colors[2], colors[3], colors[4], colors[5], colors[6], colors[7], colors[8], colors[9], colors[10], colors[11], colors[12], colors[13], colors[14], colors[15]);
+	    ModelBakery.addVariantName(Item.getItemFromBlock(blockPane), "hgp:hgpPane", "hgp:hgpPane_iron");
+	    
+	    for(int i = 0; i < 16; i++)
+	    {
+	    	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(blockColoredPane), i, new ModelResourceLocation(colors[i], "inventory"));
+	    }
 	}
 }
