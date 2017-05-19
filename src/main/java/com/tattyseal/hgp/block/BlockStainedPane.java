@@ -4,16 +4,18 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -73,11 +75,10 @@ public class BlockStainedPane extends BlockPane
 	{
 		super();
 		setUnlocalizedName("hgp.paneStained");
-		setBlockBounds(0, 0.4375f, 0, 1, 0.5625f, 1);
 		setHardness(1f);
 		setHarvestLevel("pickaxe", 1);
-		setCreativeTab(CreativeTabs.tabDecorations);
-		setStepSound(Block.soundTypeGlass);
+		setCreativeTab(CreativeTabs.DECORATIONS);
+		setSoundType(SoundType.GLASS);
 	}
 	
 	@Override
@@ -87,9 +88,9 @@ public class BlockStainedPane extends BlockPane
 	}
 	
 	@Override
-	protected BlockState createBlockState() 
+	protected BlockStateContainer createBlockState()
 	{
-	    return new BlockState(this, new IProperty[] {
+	    return new BlockStateContainer(this, new IProperty[] {
 	    	COLOR 
 	    });
 	}
@@ -114,12 +115,6 @@ public class BlockStainedPane extends BlockPane
 	}
 	
 	@Override
-	public boolean isOpaqueCube() 
-	{
-		return false;
-	}
-	
-	@Override
 	public boolean canSilkHarvest() 
 	{
 		return true;
@@ -134,21 +129,21 @@ public class BlockStainedPane extends BlockPane
 	@Override
 	public String getUnlocalizedName()
 	{
-		return Blocks.glass_pane.getUnlocalizedName();
+		return Blocks.GLASS_PANE.getUnlocalizedName();
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list)
 	{
 		for(int i = 0; i < 16; i++)
 		{
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
-	
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
-    {
-        return EnumWorldBlockLayer.TRANSLUCENT;
-    }
+
+	@Override
+	public BlockRenderLayer getBlockLayer()
+	{
+		return BlockRenderLayer.TRANSLUCENT;
+	}
 }

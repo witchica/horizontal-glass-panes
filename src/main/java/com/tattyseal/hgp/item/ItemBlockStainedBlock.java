@@ -1,9 +1,12 @@
 package com.tattyseal.hgp.item;
 
+import com.tattyseal.hgp.HorizontalGlassPanes;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBlockStainedBlock extends ItemBlock
 {
@@ -25,10 +28,16 @@ public class ItemBlockStainedBlock extends ItemBlock
 	{
 		return damage;
 	}
-	
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) 
 	{
-		return new ItemStack(Blocks.stained_glass_pane, 1, stack.getItemDamage()).getDisplayName();
+		if(!stack.isEmpty() && stack.getMetadata() == 10 && HorizontalGlassPanes.proxy.getMeme())
+		{
+			return "PURPLE DROP ME ADP";
+		}
+
+		return HorizontalGlassPanes.proxy.getHorizontal() + " " + new ItemStack(Blocks.STAINED_GLASS_PANE, 1, stack.getItemDamage()).getDisplayName();
 	}
 }

@@ -29,6 +29,6 @@ public class ItemBlockPane extends ItemBlock
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) 
 	{
-		return new ItemStack(stack.getItemDamage() == 0 ? Blocks.glass_pane : Blocks.iron_bars, 1).getDisplayName();
+		return new ItemStack(stack.getItemDamage() == 0 ? Blocks.GLASS_PANE : Blocks.IRON_BARS, 1).getDisplayName();
 	}
 }

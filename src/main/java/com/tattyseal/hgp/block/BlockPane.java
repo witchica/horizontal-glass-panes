@@ -4,20 +4,29 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
 
 @Optional.Interface(iface = "ljfa.glassshards.api.IShatterableGlass", modid = "glass_shards")
 public class BlockPane extends Block
@@ -58,13 +67,12 @@ public class BlockPane extends Block
 	
 	public BlockPane()
 	{
-		super(Material.glass);
+		super(Material.GLASS);
 		setUnlocalizedName("hgp.pane");
-		setBlockBounds(0, 0.4375f, 0, 1, 0.5625f, 1);
 		setHardness(1f);
 		setHarvestLevel("pickaxe", 1);
-		setCreativeTab(CreativeTabs.tabDecorations);
-		setStepSound(Block.soundTypeGlass);
+		setCreativeTab(CreativeTabs.DECORATIONS);
+		setSoundType(SoundType.GLASS);
 		setState();
 	}
 	
@@ -74,13 +82,17 @@ public class BlockPane extends Block
 	}
 
 	@Override
-	protected BlockState createBlockState() 
-	{
-	    return new BlockState(this, new IProperty[] {
-	    	TYPE 
-	    });
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, new IProperty[] {
+				TYPE
+		});
 	}
-	
+
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(0, 0.4375f, 0, 1, 0.5625f, 1);
+	}
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) 
 	{
@@ -99,18 +111,7 @@ public class BlockPane extends Block
 	{
 	    return getMetaFromState(state);
 	}
-	
-	@Override
-	public boolean isOpaqueCube() 
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean isFullCube() 
-	{
-		return false;
-	}
+
 	
 	@Override
 	public boolean canSilkHarvest() 
@@ -126,7 +127,7 @@ public class BlockPane extends Block
 
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list)
 	{
 		for(int i = 0; i < 2; i++)
 		{
@@ -135,12 +136,17 @@ public class BlockPane extends Block
 	}
 	public String getUnlocalizedName()
 	{
-		return Blocks.glass_pane.getUnlocalizedName();
+		return Blocks.GLASS_PANE.getUnlocalizedName();
 	}
-	
-    @SideOnly(Side.CLIENT)
-    public EnumWorldBlockLayer getBlockLayer()
-    {
-        return EnumWorldBlockLayer.CUTOUT_MIPPED;
-    }
+
+	@Override
+	public BlockRenderLayer getBlockLayer()
+	{
+		return BlockRenderLayer.CUTOUT_MIPPED;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 }

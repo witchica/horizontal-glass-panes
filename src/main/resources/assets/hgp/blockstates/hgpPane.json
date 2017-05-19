@@ -1,6 +1,6 @@
 {
     "variants": {
-        "type=glass": { "model":"hgp:hgpPane" },
-        "type=iron": { "model":"hgp:hgpPane_iron" }
+        "type=glass": { "model":"hgp:hgp_pane" },
+        "type=iron": { "model":"hgp:hgp_pane_iron" }
     }
 }

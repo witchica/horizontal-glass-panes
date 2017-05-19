@@ -8,6 +8,7 @@ import com.tattyseal.hgp.proxy.IProxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -23,6 +24,9 @@ public class HorizontalGlassPanes
 {
 	public static Block blockPane;
 	public static Block blockColoredPane;
+
+	public ItemBlock ibBlockPane;
+	public ItemBlock ibBlockColoredPane;
 	
 	@Instance("hgp")
 	public static HorizontalGlassPanes instance;
@@ -34,22 +38,34 @@ public class HorizontalGlassPanes
 	public void preInit(FMLPreInitializationEvent init)
 	{
 		blockPane = new BlockPane();
+		blockPane.setRegistryName("hgpPane");
+
+		ibBlockPane = new ItemBlockPane(blockPane);
+		ibBlockPane.setRegistryName("hgpPane");
+
 		blockColoredPane = new BlockStainedPane();
+		blockColoredPane.setRegistryName("hgpColoredPane");
+
+		ibBlockColoredPane = new ItemBlockStainedBlock(blockColoredPane);
+		ibBlockColoredPane.setRegistryName("hgpColoredPane");
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent init)
 	{
-		GameRegistry.registerBlock(blockPane, ItemBlockPane.class, "hgpPane");
-	    GameRegistry.registerBlock(blockColoredPane, ItemBlockStainedBlock.class, "hgpColoredPane");
+		GameRegistry.register(blockPane);
+	    GameRegistry.register(blockColoredPane);
+
+		GameRegistry.register(ibBlockPane);
+		GameRegistry.register(ibBlockColoredPane);
 
 	    for(int i = 0; i < 16; i++)
 	    {
-	      GameRegistry.addShapedRecipe(new ItemStack(blockColoredPane, 3, i), "PPP", 'P', new ItemStack(Blocks.stained_glass_pane, 1, i));
+	      GameRegistry.addShapedRecipe(new ItemStack(blockColoredPane, 3, i), "PPP", 'P', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, i));
 	    }
 
-	    GameRegistry.addShapedRecipe(new ItemStack(blockPane, 3, 0), "PPP", 'P', new ItemStack(Blocks.glass_pane, 1));
-	    GameRegistry.addShapedRecipe(new ItemStack(blockPane, 3, 1), "PPP", 'P', new ItemStack(Blocks.iron_bars, 1));
+	    GameRegistry.addShapedRecipe(new ItemStack(blockPane, 3, 0), "PPP", 'P', new ItemStack(Blocks.GLASS_PANE, 1));
+	    GameRegistry.addShapedRecipe(new ItemStack(blockPane, 3, 1), "PPP", 'P', new ItemStack(Blocks.IRON_BARS, 1));
 
 	    OreDictionary.registerOre("paneGlassColorless", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
 	    OreDictionary.registerOre("paneGlass", new ItemStack(blockColoredPane, 1, OreDictionary.WILDCARD_VALUE));
