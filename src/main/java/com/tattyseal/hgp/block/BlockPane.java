@@ -69,13 +69,83 @@ public class BlockPane extends Block
 	{
 		super(Material.GLASS);
 		setUnlocalizedName("hgp.pane");
-		setHardness(1f);
 		setHarvestLevel("pickaxe", 1);
 		setCreativeTab(CreativeTabs.DECORATIONS);
 		setSoundType(SoundType.GLASS);
 		setState();
 	}
-	
+
+	@Override
+	public Material getMaterial(IBlockState state)
+	{
+		if(state.getPropertyKeys().contains(TYPE))
+		{
+			EnumType type = (EnumType) state.getValue(TYPE);
+
+			switch(type)
+			{
+				case IRON:
+				{
+					return Material.IRON;
+				}
+				default:
+				{
+					return Material.GLASS;
+				}
+			}
+		}
+		else
+		{
+			return Material.GLASS;
+		}
+	}
+
+	@Override
+	public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos)
+	{
+		if(!blockState.getPropertyKeys().contains(TYPE))
+		{
+			return 1f;
+		}
+
+		EnumType type = (EnumType) blockState.getValue(TYPE);
+
+		switch(type)
+		{
+			case IRON:
+			{
+				return 5f;
+			}
+			default:
+			{
+				return 1f;
+			}
+		}
+	}
+
+	@Override
+	public SoundType getSoundType(IBlockState state, World world, BlockPos pos, @Nullable Entity entity)
+	{
+		if(!state.getPropertyKeys().contains(TYPE))
+		{
+			return SoundType.GLASS;
+		}
+
+		EnumType type = (EnumType) state.getValue(TYPE);
+
+		switch(type)
+		{
+			case IRON:
+			{
+				return SoundType.STONE;
+			}
+			default:
+			{
+				return SoundType.GLASS;
+			}
+		}
+	}
+
 	public void setState()
 	{
 	    this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, EnumType.GLASS));
@@ -122,7 +192,7 @@ public class BlockPane extends Block
 	@Override
 	public int quantityDropped(IBlockState state, int fortune, Random random) 
 	{
-		return 0;
+		return state.getPropertyKeys().contains(TYPE) ? (((EnumType) state.getValue(TYPE)) == EnumType.IRON ? 1 : 0) : 0;
 	}
 
 	
