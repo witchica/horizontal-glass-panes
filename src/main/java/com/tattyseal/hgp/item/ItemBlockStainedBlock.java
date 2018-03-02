@@ -33,11 +33,6 @@ public class ItemBlockStainedBlock extends ItemBlock
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) 
 	{
-		if(!stack.isEmpty() && stack.getMetadata() == 10 && HorizontalGlassPanes.proxy.getMeme())
-		{
-			return "PURPLE DROP ME ADP";
-		}
-
 		return HorizontalGlassPanes.proxy.getHorizontal() + " " + new ItemStack(Blocks.STAINED_GLASS_PANE, 1, stack.getItemDamage()).getDisplayName();
 	}
 }

@@ -133,11 +133,14 @@ public class BlockStainedPane extends BlockPane
 	}
 	
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list)
+	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list)
 	{
-		for(int i = 0; i < 16; i++)
+		if(tab == CreativeTabs.DECORATIONS)
 		{
-			list.add(new ItemStack(item, 1, i));
+			for(int i = 0; i < 16; i++)
+			{
+				list.add(new ItemStack(this, 1, i));
+			}
 		}
 	}
 

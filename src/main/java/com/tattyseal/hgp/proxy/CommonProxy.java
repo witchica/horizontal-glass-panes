@@ -9,12 +9,6 @@ public class CommonProxy implements IProxy
 	}
 
 	@Override
-	public boolean getMeme()
-	{
-		return false;
-	}
-
-	@Override
 	public String getHorizontal()
 	{
 		return "";
