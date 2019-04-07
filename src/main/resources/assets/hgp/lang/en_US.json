@@ -1,0 +1,20 @@
+{
+    "block.hgp.pane_iron": "Horizontal Iron Bars",
+    "block.hgp.pane_glass": "Horizontal Glass Pane",
+    "block.hgp.pane_white": "Horizontal White Stained Glass Pane",
+    "block.hgp.pane_orange": "Horizontal Orange Stained Glass Pane",
+    "block.hgp.pane_magenta": "Horizontal Magenta Stained Glass Pane",
+    "block.hgp.pane_light_blue": "Horizontal Light Blue Stained Glass Pane",
+    "block.hgp.pane_yellow": "Horizontal Yellow Stained Glass Pane",
+    "block.hgp.pane_lime": "Horizontal Lime Stained Glass Pane",
+    "block.hgp.pane_pink": "Horizontal Pink Stained Glass Pane",
+    "block.hgp.pane_gray": "Horizontal Gray Stained Glass Pane",
+    "block.hgp.pane_light_gray": "Horizontal Light Gray Stained Glass Pane",
+    "block.hgp.pane_cyan": "Horizontal Cyan Stained Glass Pane",
+    "block.hgp.pane_purple": "Horizontal Purple Stained Glass Pane",
+    "block.hgp.pane_blue": "Horizontal Blue Stained Glass Pane",
+    "block.hgp.pane_brown": "Horizontal Brown Stained Glass Pane",
+    "block.hgp.pane_green": "Horizontal Green Stained Glass Pane",
+    "block.hgp.pane_red": "Horizontal Red Stained Glass Pane",
+    "block.hgp.pane_black": "Horizontal Black Stained Glass Pane"
+}

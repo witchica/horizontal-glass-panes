@@ -1,0 +1,7 @@
+{
+    "parent": "hgp:block/pane_c",
+    "textures": {
+        "pane": "block/brown_stained_glass",
+        "side": "block/brown_stained_glass_pane_top"
+    }
+}

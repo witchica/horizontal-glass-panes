@@ -1,7 +1,0 @@
-{
-    "parent": "hgp:block/pane_b",
-    "textures": {
-        "edge": "blocks/iron_bars",
-        "pane": "blocks/iron_bars"
-    }
-}
