@@ -59,14 +59,7 @@ public class HorizontalGlassPanes
 	};
 
 	public static BlockPane[] paneBlocks;
-	
-//	@Instance("hgp")
-//	public static HorizontalGlassPanes instance;
-//
-//	@SidedProxy(modId = "hgp", clientSide = "com.tattyseal.hgp.proxy.ClientProxy", serverSide = "com.tattyseal.hgp.proxy.CommonProxy")
-//	public static IProxy proxy;
 
-	//pre init
 	private void setup(final FMLCommonSetupEvent event)
 	{
 	}
@@ -95,28 +88,4 @@ public class HorizontalGlassPanes
 			}
 		}
 	}
-	
-//	@EventHandler
-//	public void init(FMLInitializationEvent init)
-//	{
-//		proxy.init();
-//
-//	    for(int i = 0; i < 16; i++)
-//	    {
-//	        addShapedRecipe(new ItemStack(blockColoredPane, 3, i), "PPP", 'P', new ItemStack(Blocks.STAINED_GLASS_PANE, 1, i));
-//	    }
-//
-//	    addShapedRecipe(new ItemStack(blockPane, 3, 0), "PPP", 'P', new ItemStack(Blocks.GLASS_PANE, 1));
-//	    addShapedRecipe(new ItemStack(blockPane, 3, 1), "PPP", 'P', new ItemStack(Blocks.IRON_BARS, 1));
-//
-//	    OreDictionary.registerOre("paneGlassColorless", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
-//	    OreDictionary.registerOre("paneGlass", new ItemStack(blockColoredPane, 1, OreDictionary.WILDCARD_VALUE));
-//	    OreDictionary.registerOre("paneGlass", new ItemStack(blockPane, 1, OreDictionary.WILDCARD_VALUE));
-//	}
-
-//	public static void addShapedRecipe(ItemStack output, Object... params)
-//	{
-//		ResourceLocation recipeResourceLocation = new ResourceLocation(output.getItem().getRegistryName().getResourceDomain(), output.getItem().getRegistryName().getResourcePath() + output.getItemDamage());
-//		GameRegistry.addShapedRecipe(recipeResourceLocation, null, output, params);
-//	}
 }

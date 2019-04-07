@@ -2,6 +2,7 @@
     "parent": "hgp:block/pane_c",
     "textures": {
         "pane": "block/blue_stained_glass",
-        "side": "block/blue_stained_glass_pane_top"
+        "side": "block/blue_stained_glass_pane_top",
+        "particle": "block/blue_stained_glass"
     }
 }
