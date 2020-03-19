@@ -1,9 +1,9 @@
 modLoader="javafml" #mandatory
-loaderVersion="[25,)" #mandatory
+loaderVersion="[31,)" #mandatory
 credits="deletey aka tattyseal" #optional
 [[mods]] #mandatory
 modId="hgp" #mandatory
-version="1.13.2" #mandatory
+version="1.15.2" #mandatory
 displayName="Horizontal Glass Panes" #mandatory
 description='''
 Adding horizontal glass panes and iron bars since 2016

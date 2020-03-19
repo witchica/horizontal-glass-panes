@@ -4,8 +4,8 @@ import com.tattyseal.hgp.block.BlockPane;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -79,7 +79,7 @@ public class HorizontalGlassPanes
 		public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
 			for (int i = 0; i < HorizontalGlassPanes.paneBlocks.length; i++) {
 				BlockPane block = HorizontalGlassPanes.paneBlocks[i];
-				ItemBlock ib = new ItemBlock(block, new Item.Properties().group(ItemGroup.DECORATIONS));
+				BlockItem ib = new BlockItem(block, new Item.Properties().group(ItemGroup.DECORATIONS));
 
 				ib.setRegistryName(block.getRegistryName());
 				itemRegisterEvent.getRegistry().register(ib);
