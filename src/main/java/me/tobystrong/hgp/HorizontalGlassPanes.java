@@ -29,15 +29,12 @@ public class HorizontalGlassPanes implements ModInitializer {
 			COLORED_PANES[i] = new BlockPane(FabricBlockSettings.copy(Blocks.GLASS_PANE).build());
 			Registry.register(Registry.BLOCK, new Identifier("horizontal-glass-panes", "pane_" + DyeColor.values()[i].name().toLowerCase()), COLORED_PANES[i]);
 			Registry.register(Registry.ITEM, new Identifier("horizontal-glass-panes", "pane_" + DyeColor.values()[i].name().toLowerCase()), new BlockItem(COLORED_PANES[i], new Item.Settings().group(ItemGroup.DECORATIONS)));
-			BlockRenderLayerMap.INSTANCE.putBlock(COLORED_PANES[i], RenderLayer.getTranslucent());
 		}
 
 		Registry.register(Registry.BLOCK, new Identifier("horizontal-glass-panes", "pane_glass"), PANE_GLASS);
 		Registry.register(Registry.ITEM, new Identifier("horizontal-glass-panes", "pane_glass"), new BlockItem(PANE_GLASS, new Item.Settings().group(ItemGroup.DECORATIONS)));
-		BlockRenderLayerMap.INSTANCE.putBlock(PANE_GLASS, RenderLayer.getTranslucent());
 
 		Registry.register(Registry.BLOCK, new Identifier("horizontal-glass-panes", "pane_iron"), PANE_IRON);
 		Registry.register(Registry.ITEM, new Identifier("horizontal-glass-panes", "pane_iron"), new BlockItem(PANE_IRON, new Item.Settings().group(ItemGroup.DECORATIONS)));
-		BlockRenderLayerMap.INSTANCE.putBlock(PANE_IRON, RenderLayer.getCutout());
 	}
 }

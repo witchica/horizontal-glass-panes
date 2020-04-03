@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "me.tobystrong.hgp.HorizontalGlassPanes"
+    ],
+    "client": [
+      "me.tobystrong.hgp.HorizontalGlassPanesClient"
     ]
   },
   "mixins": [
