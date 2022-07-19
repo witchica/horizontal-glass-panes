@@ -1,6 +1,6 @@
 {
     "parent": "horizontal-glass-panes:block/pane_d",
     "textures": {
-        "pane": "pane/red_stained_glass"
+        "pane": "block/red_stained_glass"
     }
 }
