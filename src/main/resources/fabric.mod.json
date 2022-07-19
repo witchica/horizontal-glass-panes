@@ -4,25 +4,25 @@
   "version": "${version}",
 
   "name": "Horizontal Glass Panes",
-  "description": "Adds Horizontal Glass Panes and Iron Bars!",
+  "description": "Panes, now horizontal!",
   "authors": [
-    "deletey"
+    "Tabitha Strong"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/members/tobyystrong",
-    "sources": "https://github.com/deletey/horizontal-glass-panes"
+    "homepage": "https://tabithastrong.com/projects/minecraft.html",
+    "sources": "https://github.com/tabithastrong/horizontal-glass-panes"
   },
 
-  "license": "Apache 2.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GPL-3",
+  "icon": "assets/horizontal-glass-panes/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.tobystrong.hgp.HorizontalGlassPanes"
+      "com.tabithastrong.panes.HorizontalGlassPanes"
     ],
     "client": [
-      "me.tobystrong.hgp.HorizontalGlassPanesClient"
+      "com.tabithastrong.panes.HorizontalGlassPanesClient"
     ]
   },
   "mixins": [
@@ -30,11 +30,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.14.6",
     "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "minecraft": "~1.19",
+    "java": ">=17"
   }
 }

@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
+    "parent": "horizontal-glass-panes:block/pane_d",
     "textures": {
-        "layer0": "block/iron_bars"
+        "pane": "block/iron_bars"
     }
 }

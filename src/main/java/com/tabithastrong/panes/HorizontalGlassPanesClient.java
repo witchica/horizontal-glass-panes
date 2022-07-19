@@ -1,4 +1,4 @@
-package me.tobystrong.hgp;
+package com.tabithastrong.panes;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -11,7 +11,6 @@ public class HorizontalGlassPanesClient implements ClientModInitializer {
     @Environment(EnvType.CLIENT)
     @Override
     public void onInitializeClient() {
-
         for(int i = 0; i < DyeColor.values().length; i++) {
             BlockRenderLayerMap.INSTANCE.putBlock(HorizontalGlassPanes.COLORED_PANES[i], RenderLayer.getTranslucent());
         }
