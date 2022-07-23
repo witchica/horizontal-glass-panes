@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
@@ -22,6 +21,8 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 import java.util.stream.Collectors;
@@ -87,27 +88,29 @@ public class HorizontalGlassPanes
     public static class RegistryEvents
     {
         @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent)
+        public static void onRegister(RegisterEvent registerEvent)
         {
-            for(int i = 0; i < DyeColor.values().length; i++) {
-                COLORED_PANES[i] = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(VANILLA_COLORED_PANES[i])).setRegistryName("horizontal_glass_panes", "pane_" + DyeColor.values()[i].name().toLowerCase());
-            }
+            registerEvent.register(ForgeRegistries.Keys.BLOCKS, helper -> {
+                for(int i = 0; i < DyeColor.values().length; i++) {
+                    COLORED_PANES[i] = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(VANILLA_COLORED_PANES[i]));
+                    helper.register(new ResourceLocation("horizontal_glass_panes", "pane_" + DyeColor.values()[i].name().toLowerCase()), COLORED_PANES[i]);
+                }
 
-            PANE_GLASS = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(Blocks.GLASS_PANE)).setRegistryName(new ResourceLocation("horizontal_glass_panes", "pane_glass"));
-            PANE_IRON = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS)).setRegistryName(new ResourceLocation("horizontal_glass_panes", "pane_iron"));
+                PANE_GLASS = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(Blocks.GLASS_PANE));
+                PANE_IRON = new HorizontalPaneBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BARS));
 
-            blockRegistryEvent.getRegistry().registerAll(COLORED_PANES);
-            blockRegistryEvent.getRegistry().registerAll(PANE_GLASS, PANE_IRON);
-        }
+                helper.register(new ResourceLocation("horizontal_glass_panes", "pane_glass"), PANE_GLASS);
+                helper.register(new ResourceLocation("horizontal_glass_panes", "pane_iron"), PANE_IRON);
+            });
 
-        @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegisterEvent) {
-            itemRegisterEvent.getRegistry().register(new BlockItem(PANE_GLASS, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)).setRegistryName(PANE_GLASS.getRegistryName()));
-            itemRegisterEvent.getRegistry().register(new BlockItem(PANE_IRON, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)).setRegistryName(PANE_IRON.getRegistryName()));
+            registerEvent.register(ForgeRegistries.Keys.ITEMS, helper -> {
+                for(int i = 0; i < DyeColor.values().length; i++) {
+                    helper.register(new ResourceLocation("horizontal_glass_panes", "pane_" + DyeColor.values()[i].name().toLowerCase()), new BlockItem(COLORED_PANES[i], new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+                }
 
-            for(int i = 0; i < 16; i++) {
-                itemRegisterEvent.getRegistry().register(new BlockItem(COLORED_PANES[i], new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)).setRegistryName(COLORED_PANES[i].getRegistryName()));
-            }
+                helper.register(new ResourceLocation("horizontal_glass_panes", "pane_glass"), new BlockItem(PANE_GLASS, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+                helper.register(new ResourceLocation("horizontal_glass_panes", "pane_iron"), new BlockItem(PANE_IRON, new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+            });
         }
     }
 }
