@@ -1,0 +1,9 @@
+
+    {
+        "parent": "horizontal-glass-panes:block/pane_c_corner",
+        "textures": {
+            "pane": "block/blue_stained_glass",
+            "side": "block/blue_stained_glass_pane_top",
+            "particle": "block/blue_stained_glass"
+        }
+    }

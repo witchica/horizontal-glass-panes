@@ -1,5 +1,48 @@
 {
-    "variants": {
-        "": {"model": "horizontal-glass-panes:block/pane_black" }
+  "multipart": [
+    {
+      "apply": {
+        "model": "horizontal-glass-panes:block/pane_black"
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+          "model": "horizontal-glass-panes:block/corners/pane_black_north",
+          "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "horizontal-glass-panes:block/corners/pane_black_north_offset",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "horizontal-glass-panes:block/corners/pane_black_north",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "horizontal-glass-panes:block/corners/pane_black_north_offset",
+        "y": 270,
+        "uvlock": true
+      }
     }
+  ]
 }
