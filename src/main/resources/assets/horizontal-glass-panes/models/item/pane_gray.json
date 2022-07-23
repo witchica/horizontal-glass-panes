@@ -1,6 +1,0 @@
-{
-    "parent": "horizontal-glass-panes:block/pane_d",
-    "textures": {
-        "pane": "block/gray_stained_glass"
-    }
-}

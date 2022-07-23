@@ -1,21 +1,22 @@
 package com.tabithastrong.panes;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.util.DyeColor;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.DyeColor;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-public class HorizontalGlassPanesClient implements ClientModInitializer {
-    @Environment(EnvType.CLIENT)
-    @Override
-    public void onInitializeClient() {
+public class HorizontalGlassPanesClient {
+
+
+    @SubscribeEvent
+    public static void onClientSetupEvent(FMLClientSetupEvent event) {
+
         for(int i = 0; i < DyeColor.values().length; i++) {
-            BlockRenderLayerMap.INSTANCE.putBlock(HorizontalGlassPanes.COLORED_PANES[i], RenderLayer.getTranslucent());
+            ItemBlockRenderTypes.setRenderLayer(HorizontalGlassPanes.COLORED_PANES[i], RenderType.translucent());
         }
 
-        BlockRenderLayerMap.INSTANCE.putBlock(HorizontalGlassPanes.PANE_GLASS, RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HorizontalGlassPanes.PANE_IRON, RenderLayer.getCutout());
+        ItemBlockRenderTypes.setRenderLayer(HorizontalGlassPanes.PANE_GLASS, RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(HorizontalGlassPanes.PANE_IRON, RenderType.cutout());
     }
 }

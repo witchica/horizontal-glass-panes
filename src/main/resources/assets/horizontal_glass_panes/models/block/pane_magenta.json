@@ -1,0 +1,8 @@
+{
+    "parent": "horizontal_glass_panes:block/pane_c",
+    "textures": {
+        "pane": "block/magenta_stained_glass",
+        "side": "block/magenta_stained_glass_pane_top",
+        "particle": "block/magenta_stained_glass"
+    }
+}

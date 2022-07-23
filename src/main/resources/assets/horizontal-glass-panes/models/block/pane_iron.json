@@ -1,8 +1,0 @@
-{
-    "parent": "horizontal-glass-panes:block/pane_c",
-    "textures": {
-        "pane": "block/iron_bars",
-        "side": "block/iron_bars",
-        "particle": "block/iron_bars"
-    }
-}

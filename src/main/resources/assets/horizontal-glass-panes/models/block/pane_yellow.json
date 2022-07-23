@@ -1,8 +1,0 @@
-{
-    "parent": "horizontal-glass-panes:block/pane_c",
-    "textures": {
-        "pane": "block/yellow_stained_glass",
-        "side": "block/yellow_stained_glass_pane_top",
-        "particle": "block/yellow_stained_glass"
-    }
-}

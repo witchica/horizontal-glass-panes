@@ -1,0 +1,8 @@
+{
+    "parent": "horizontal_glass_panes:block/pane_c",
+    "textures": {
+        "pane": "block/glass",
+        "side": "block/glass_pane_top",
+        "particle": "block/glass"
+    }
+}
