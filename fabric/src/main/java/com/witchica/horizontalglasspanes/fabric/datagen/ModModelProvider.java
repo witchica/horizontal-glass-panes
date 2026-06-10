@@ -10,6 +10,7 @@ import com.witchica.horizontalglasspanes.block.ModBlocks;
 import com.witchica.horizontalglasspanes.item.ModItems;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.WeatheringCopper;
 
 import java.util.Locale;
 
@@ -26,6 +27,18 @@ public class ModModelProvider extends FabricModelProvider {
 
         PaneBlockModelProvider.registerPane(blockStateModelGenerator, ModBlocks.glassPane.asBlock(), TextureMapping.singleSlot(PaneBlockModelProvider.topSlot, new Material(Identifier.withDefaultNamespace("block/glass"))).put(PaneBlockModelProvider.sideSlot, new Material(Identifier.withDefaultNamespace("block/glass_pane_top"))));
         PaneBlockModelProvider.registerBars(blockStateModelGenerator, ModBlocks.ironBars.asBlock(), TextureMapping.defaultTexture(new Material(Identifier.withDefaultNamespace("block/iron_bars"))));
+
+
+        ModBlocks.copperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
+            PaneBlockModelProvider.registerBars(blockStateModelGenerator, weatherStateDeferredBlockEntry.getValue().asBlock(), TextureMapping.defaultTexture(new Material(Identifier.withDefaultNamespace(copperTexture(weatherStateDeferredBlockEntry.getKey())))));
+        });
+        ModBlocks.waxedCopperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
+            PaneBlockModelProvider.registerBars(blockStateModelGenerator, weatherStateDeferredBlockEntry.getValue().asBlock(), TextureMapping.defaultTexture(new Material(Identifier.withDefaultNamespace(copperTexture(weatherStateDeferredBlockEntry.getKey())))));
+        });
+    }
+
+    public String copperTexture(WeatheringCopper.WeatherState weatherState) {
+        return "block/" + (weatherState == WeatheringCopper.WeatherState.UNAFFECTED ? "copper_bars" : weatherState.name().toLowerCase(Locale.ROOT) + "_copper_bars");
     }
 
     @Override

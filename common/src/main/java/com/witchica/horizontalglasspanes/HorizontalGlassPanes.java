@@ -3,6 +3,9 @@ package com.witchica.horizontalglasspanes;
 import net.blay09.mods.balm.platform.event.callback.CreativeModeTabCallback;
 import net.minecraft.resources.Identifier;
 import net.blay09.mods.balm.core.BalmRegistrars;
+import net.minecraft.world.item.HoneycombItem;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopperBarsBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.witchica.horizontalglasspanes.block.ModBlocks;
@@ -27,12 +30,19 @@ public class HorizontalGlassPanes {
             });
         });
 
+
+
         CreativeModeTabCallback.BuildContents.forTab(Identifier.withDefaultNamespace("building_blocks")).register((tab, output) -> {
             output.accept(ModBlocks.glassPane);
             output.accept(ModBlocks.ironBars);
-//            ModBlocks.copperBars.forEach((weatherState, deferredBlock) -> {
-//                output.accept(deferredBlock);
-//            });
+
+            ModBlocks.copperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
+                output.accept(weatherStateDeferredBlockEntry.getValue().asBlock());
+            });
+
+            ModBlocks.waxedCopperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
+                output.accept(weatherStateDeferredBlockEntry.getValue().asBlock());
+            });
         });
     }
 

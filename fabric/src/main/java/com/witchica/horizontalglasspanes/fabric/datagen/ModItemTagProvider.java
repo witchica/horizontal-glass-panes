@@ -20,5 +20,13 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
         ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
             valueLookupBuilder(ModItemTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asItem());
         });
+
+        ModBlocks.copperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
+            valueLookupBuilder(ModItemTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asItem());
+        });
+
+        ModBlocks.waxedCopperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
+            valueLookupBuilder(ModItemTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asItem());
+        });
     }
 }

@@ -37,6 +37,9 @@ public class ModBlocks {
         DYE_TO_PANES.put(DyeColor.YELLOW, Blocks.YELLOW_STAINED_GLASS_PANE);
     }
 
+    public static DiscriminatedBlocks<WeatheringCopper.WeatherState> copperBars;
+    public static DiscriminatedBlocks<WeatheringCopper.WeatherState> waxedCopperBars;
+
     public static void initialize(BalmBlockRegistrar blocks) {
         colorfulPanes = blocks.registerDiscriminated(DyeColor.values(), dyeColor -> dyeColor.name().toLowerCase(Locale.ROOT) + "_horizontal_pane", (dyeColor, properties) -> {
             return new ColorfulHorizontalPaneBlock(properties, dyeColor);
@@ -48,9 +51,15 @@ public class ModBlocks {
         }, properties -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS)).withDefaultItem().asDeferredBlock();
 
         glassPane = blocks.register("glass_horizontal_pane", properties -> new HorizontalPaneBlock(properties), properties -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS_PANE)).withDefaultItem().asDeferredBlock();
+
+
+        copperBars = blocks.registerDiscriminated(WeatheringCopper.WeatherState.values(), weatherState -> weatherToName(weatherState, false) + "horizontal_copper_bars", (weatherState, properties) -> new WeatheringHorizontalCopperBarsBlock(properties, weatherState, false), (weatherState, properties) -> BlockBehaviour.Properties.ofFullCopy(getWeatherStateOfBlock(Blocks.COPPER_BARS, weatherState, false))).withDefaultItems().asDiscriminatedBlocks();
+        waxedCopperBars = blocks.registerDiscriminated(WeatheringCopper.WeatherState.values(), weatherState -> weatherToName(weatherState, true) + "horizontal_copper_bars", (weatherState, properties) -> new WeatheringHorizontalCopperBarsBlock(properties, weatherState, true), (weatherState, properties) -> BlockBehaviour.Properties.ofFullCopy(getWeatherStateOfBlock(Blocks.COPPER_BARS, weatherState, true))).withDefaultItems().asDiscriminatedBlocks();
+
+        WeatheringCopper.NEXT_BY_BLOCK.get().put(copperBars.get(WeatheringCopper.WeatherState.UNAFFECTED).asBlock(), copperBars.get(WeatheringCopper.WeatherState.EXPOSED).asBlock());
     }
 
-    private static Block getWeatherStateOfBlock(WeatheringCopperBlocks weatheringCopperBlocks, WeatheringCopper.WeatherState weatherState, boolean waxed) {
+    public static Block getWeatherStateOfBlock(WeatheringCopperBlocks weatheringCopperBlocks, WeatheringCopper.WeatherState weatherState, boolean waxed) {
         switch (weatherState) {
             case UNAFFECTED -> {
                 return waxed ? weatheringCopperBlocks.waxed() : weatheringCopperBlocks.unaffected();
@@ -67,6 +76,10 @@ public class ModBlocks {
         }
 
         return null;
+    }
+
+    public static String weatherToName(WeatheringCopper.WeatherState state, boolean waxed) {
+        return (waxed ? "waxed_" : "") + (state == WeatheringCopper.WeatherState.UNAFFECTED ? "" : state.name().toLowerCase(Locale.ROOT) + "_");
     }
 
     private static BlockBehaviour.Properties copyProperties(BlockBehaviour.Properties properties, Block toCopy) {

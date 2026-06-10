@@ -18,5 +18,13 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
         ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
             valueLookupBuilder(ModBlockTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asBlock());
         });
+
+        ModBlocks.copperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
+            valueLookupBuilder(ModBlockTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlock());
+        });
+
+        ModBlocks.waxedCopperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
+            valueLookupBuilder(ModBlockTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlock());
+        });
     }
 }
