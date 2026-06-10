@@ -25,6 +25,8 @@ public class HorizontalGlassPanes {
         registrars.items(ModItems::initialize);
 
         CreativeModeTabCallback.BuildContents.forTab(Identifier.withDefaultNamespace("colored_blocks")).register((tab, output) -> {
+            output.accept(ModBlocks.glassPane);
+
             ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
                 output.accept(dyeColorDeferredBlockEntry.getValue().asBlock());
             });
@@ -33,7 +35,6 @@ public class HorizontalGlassPanes {
 
 
         CreativeModeTabCallback.BuildContents.forTab(Identifier.withDefaultNamespace("building_blocks")).register((tab, output) -> {
-            output.accept(ModBlocks.glassPane);
             output.accept(ModBlocks.ironBars);
 
             ModBlocks.copperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {

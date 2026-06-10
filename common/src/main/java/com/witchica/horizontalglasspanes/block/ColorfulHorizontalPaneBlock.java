@@ -1,6 +1,7 @@
 package com.witchica.horizontalglasspanes.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.BeaconBeamBlock;
@@ -21,5 +22,10 @@ public class ColorfulHorizontalPaneBlock extends HorizontalPaneBlock implements 
     @Override
     public DyeColor getColor() {
         return this.dyeColor;
+    }
+
+    @Override
+    protected boolean skipRendering(BlockState state, BlockState neighborState, Direction direction) {
+        return neighborState.getBlock() instanceof ColorfulHorizontalPaneBlock;
     }
 }

@@ -3,6 +3,7 @@ package com.witchica.horizontalglasspanes.block;
 import com.google.common.collect.BiMap;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -144,5 +145,10 @@ public class WeatheringHorizontalCopperBarsBlock extends HorizontalPaneBlock imp
     private static void spawnSoundAndParticle(Level level, BlockPos pos, @Nullable Player player, BlockState oldState, SoundEvent soundEvent, int particle) {
         level.playSound(null, pos, soundEvent, SoundSource.BLOCKS, 1.0F, 1.0F);
         level.levelEvent(null, particle, pos, 0);
+    }
+
+    @Override
+    protected boolean skipRendering(BlockState state, BlockState neighborState, Direction direction) {
+        return neighborState.getBlock() instanceof WeatheringHorizontalCopperBarsBlock;
     }
 }
