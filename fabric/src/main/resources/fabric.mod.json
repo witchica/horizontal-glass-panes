@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${homepage}",
+    "sources": "${sources}",
+    "issues": "${issues}"
+  },
+
+  "license": "${license}",
+  "icon": "${mod_id}.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.witchica.horizontalglasspanes.fabric.FabricHorizontalGlassPanes"
+    ],
+    "client": [
+      "com.witchica.horizontalglasspanes.fabric.client.FabricHorizontalGlassPanesClient"
+    ],
+    "fabric-datagen": [
+      "com.witchica.horizontalglasspanes.fabric.datagen.ModDataGenerator"
+    ]
+  },
+  "mixins": [
+    "horizontalglasspanes.mixins.json",
+    "horizontalglasspanes.fabric.mixins.json"
+  ],
+  "depends": {
+    "java": ">=${java_version}",
+    "minecraft": "${fabric_minecraft_version_range}",
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": ">=${fabric_api_version}",
+    "balm-fabric": ">=${balm_version}"
+  },
+  "suggests": {
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "${discord}"
+      }
+    }
+  }
+}
