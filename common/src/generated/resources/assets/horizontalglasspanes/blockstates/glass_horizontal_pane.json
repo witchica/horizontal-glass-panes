@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "horizontalglasspanes:block/glass_horizontal_pane"
+    }
+  }
+}

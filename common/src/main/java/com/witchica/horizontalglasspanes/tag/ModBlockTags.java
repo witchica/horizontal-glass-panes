@@ -7,5 +7,5 @@ import net.minecraft.world.level.block.Block;
 import static com.witchica.horizontalglasspanes.HorizontalGlassPanes.id;
 
 public class ModBlockTags {
-    public static final TagKey<Block> YOUR_TAG = TagKey.create(Registries.BLOCK, id("your_tag"));
+    public static final TagKey<Block> COLORFUL_HORIZONTAL_PANES = TagKey.create(Registries.BLOCK, id("colorful_horizontal_panes"));
 }

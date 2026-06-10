@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": "minecraft:glass_pane"
+  },
+  "pattern": [
+    "PPP"
+  ],
+  "result": {
+    "id": "horizontalglasspanes:glass_horizontal_pane"
+  }
+}

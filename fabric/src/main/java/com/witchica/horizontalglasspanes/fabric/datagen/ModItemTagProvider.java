@@ -1,5 +1,7 @@
 package com.witchica.horizontalglasspanes.fabric.datagen;
 
+import com.witchica.horizontalglasspanes.block.ModBlocks;
+import com.witchica.horizontalglasspanes.tag.ModBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
@@ -15,6 +17,8 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider lookup) {
-        valueLookupBuilder(ModItemTags.YOUR_TAG).add(ModItems.yourItem.asItem());
+        ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
+            valueLookupBuilder(ModItemTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asItem());
+        });
     }
 }

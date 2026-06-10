@@ -14,6 +14,11 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
 
     @Override
     public void generate() {
-        dropSelf(ModBlocks.yourBlock.asBlock());
+        dropSelf(ModBlocks.ironBars.asBlock());
+        dropWhenSilkTouch(ModBlocks.glassPane.asBlock());
+
+        ModBlocks.colorfulPanes.forEach((dyeColor, deferredBlock) -> {
+            dropWhenSilkTouch(deferredBlock.asBlock());
+        });
     }
 }

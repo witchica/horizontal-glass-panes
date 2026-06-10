@@ -1,0 +1,6 @@
+{
+  "parent": "horizontalglasspanes:block/horizontal_bars",
+  "textures": {
+    "texture": "minecraft:block/iron_bars"
+  }
+}

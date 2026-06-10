@@ -13,12 +13,6 @@ public class ModKeyMappings {
     public static ManagedKeyMapping yourKey;
 
     public static void initialize() {
-        yourKey = Kuma.createKeyMapping(id("your_key"))
-                .withDefault(InputBinding.key(InputConstants.KEY_B))
-                .handleScreenInput(event -> {
-                    HorizontalGlassPanes.logger.info("B was pressed - " + HorizontalGlassPanes.MOD_ID);
-                    return true;
-                })
-                .build();
+
     }
 }

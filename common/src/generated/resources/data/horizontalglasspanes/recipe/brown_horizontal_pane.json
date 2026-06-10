@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": "minecraft:brown_stained_glass_pane"
+  },
+  "pattern": [
+    "PPP"
+  ],
+  "result": {
+    "id": "horizontalglasspanes:brown_horizontal_pane"
+  }
+}

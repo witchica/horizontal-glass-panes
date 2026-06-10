@@ -1,0 +1,20 @@
+{
+  "values": [
+    "horizontalglasspanes:white_horizontal_pane",
+    "horizontalglasspanes:orange_horizontal_pane",
+    "horizontalglasspanes:magenta_horizontal_pane",
+    "horizontalglasspanes:light_blue_horizontal_pane",
+    "horizontalglasspanes:yellow_horizontal_pane",
+    "horizontalglasspanes:lime_horizontal_pane",
+    "horizontalglasspanes:pink_horizontal_pane",
+    "horizontalglasspanes:gray_horizontal_pane",
+    "horizontalglasspanes:light_gray_horizontal_pane",
+    "horizontalglasspanes:cyan_horizontal_pane",
+    "horizontalglasspanes:purple_horizontal_pane",
+    "horizontalglasspanes:blue_horizontal_pane",
+    "horizontalglasspanes:brown_horizontal_pane",
+    "horizontalglasspanes:green_horizontal_pane",
+    "horizontalglasspanes:red_horizontal_pane",
+    "horizontalglasspanes:black_horizontal_pane"
+  ]
+}
