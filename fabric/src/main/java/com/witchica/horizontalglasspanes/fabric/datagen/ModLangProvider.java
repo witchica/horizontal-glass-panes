@@ -1,9 +1,12 @@
 package com.witchica.horizontalglasspanes.fabric.datagen;
 
 import com.witchica.horizontalglasspanes.block.ModBlocks;
+import com.witchica.horizontalglasspanes.tag.ModBlockTags;
+import com.witchica.horizontalglasspanes.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.WeatheringCopper;
 
 import java.util.concurrent.CompletableFuture;
@@ -28,6 +31,18 @@ public class ModLangProvider extends FabricLanguageProvider {
         }
 
         translationBuilder.add("itemGroup.horizontalglasspanes", "Horizontal Glass Panes");
+
+        addForTag(translationBuilder, ModBlockTags.COLORFUL_HORIZONTAL_PANES);
+        addForTag(translationBuilder, ModBlockTags.COPPER_HORIZONTAL_BARS);
+        addForTag(translationBuilder, ModBlockTags.WAXED_COPPER_HORIZONTAL_BARS);
+
+        addForTag(translationBuilder, ModItemTags.COLORFUL_HORIZONTAL_PANES);
+        addForTag(translationBuilder, ModItemTags.COPPER_HORIZONTAL_BARS);
+        addForTag(translationBuilder, ModItemTags.WAXED_COPPER_HORIZONTAL_BARS);
+    }
+
+    private void addForTag(TranslationBuilder translationBuilder, TagKey tagKey) {
+        translationBuilder.add(tagKey, snakeCaseToName(tagKey.location().getPath()));
     }
 
     private String snakeCaseToName(String s) {

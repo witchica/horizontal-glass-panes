@@ -1,0 +1,13 @@
+{
+  "values": [
+    "horizontalglasspanes:horizontal_copper_bars",
+    "horizontalglasspanes:exposed_horizontal_copper_bars",
+    "horizontalglasspanes:weathered_horizontal_copper_bars",
+    "horizontalglasspanes:oxidized_horizontal_copper_bars",
+    "horizontalglasspanes:waxed_horizontal_copper_bars",
+    "horizontalglasspanes:waxed_exposed_horizontal_copper_bars",
+    "horizontalglasspanes:waxed_weathered_horizontal_copper_bars",
+    "horizontalglasspanes:waxed_oxidized_horizontal_copper_bars",
+    "horizontalglasspanes:iron_horizontal_bars"
+  ]
+}
