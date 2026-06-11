@@ -26,6 +26,8 @@ public class ModLangProvider extends FabricLanguageProvider {
             translationBuilder.add(ModBlocks.copperBars.get(weatherState).asItem(), weatherState == WeatheringCopper.WeatherState.UNAFFECTED ? "Copper Bars" : snakeCaseToName(weatherState.name()) + " Copper Bars");
             translationBuilder.add(ModBlocks.waxedCopperBars.get(weatherState).asItem(), weatherState == WeatheringCopper.WeatherState.UNAFFECTED ? "Waxed Copper Bars" : "Waxed " + snakeCaseToName(weatherState.name()) + " Copper Bars");
         }
+
+        translationBuilder.add("itemGroup.horizontalglasspanes", "Horizontal Glass Panes");
     }
 
     private String snakeCaseToName(String s) {

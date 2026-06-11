@@ -24,5 +24,6 @@
   "item.horizontalglasspanes.waxed_weathered_horizontal_copper_bars": "Waxed Weathered Copper Bars",
   "item.horizontalglasspanes.weathered_horizontal_copper_bars": "Weathered Copper Bars",
   "item.horizontalglasspanes.white_horizontal_pane": "White Stained Glass Pane",
-  "item.horizontalglasspanes.yellow_horizontal_pane": "Yellow Stained Glass Pane"
+  "item.horizontalglasspanes.yellow_horizontal_pane": "Yellow Stained Glass Pane",
+  "itemGroup.horizontalglasspanes": "Horizontal Glass Panes"
 }

@@ -20,6 +20,7 @@ public class ModItems {
     public static void initializeCreativeTabs(BalmCreativeModeTabRegistrar registrar) {
         registrar.register("general", (identifier, builder) ->
                 builder.icon(() -> ModBlocks.colorfulPanes.get(DyeColor.RED).createStack())
+                .title(Component.translatable("itemGroup.horizontalglasspanes"))
                 .displayItems((itemDisplayParameters, output) -> {
                    output.accept(ModBlocks.glassPane);
                    ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
