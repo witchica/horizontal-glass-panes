@@ -3,6 +3,10 @@ plugins {
     id 'maven-publish'
 }
 
+String buildId = System.getenv("BUILD_NUMBER")
+
+version = version + (buildId == null || buildId.isEmpty() ? ".0-DEV" : "." + buildId) + version_suffix
+
 tasks.register('generateNullMarkedPackageInfos') {
     group = 'build'
     description = 'Generates missing package-info.java files with jspecify @NullMarked for each Java package containing sources.'

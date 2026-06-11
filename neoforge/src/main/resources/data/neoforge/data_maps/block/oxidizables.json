@@ -1,0 +1,13 @@
+{
+  "values": {
+    "horizontalglasspanes:horizontal_copper_bars": {
+      "next_oxidation_stage": "horizontalglasspanes:exposed_horizontal_copper_bars"
+    },
+    "horizontalglasspanes:exposed_horizontal_copper_bars": {
+      "next_oxidation_stage": "horizontalglasspanes:weathered_horizontal_copper_bars"
+    },
+    "horizontalglasspanes:weathered_horizontal_copper_bars": {
+      "next_oxidation_stage": "horizontalglasspanes:oxidized_horizontal_copper_bars"
+    }
+  }
+}

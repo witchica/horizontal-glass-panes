@@ -23,28 +23,7 @@ public class HorizontalGlassPanes {
     public static void initialize(BalmRegistrars registrars) {
         registrars.blocks(ModBlocks::initialize);
         registrars.items(ModItems::initialize);
-
-        CreativeModeTabCallback.BuildContents.forTab(Identifier.withDefaultNamespace("colored_blocks")).register((tab, output) -> {
-            output.accept(ModBlocks.glassPane);
-
-            ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
-                output.accept(dyeColorDeferredBlockEntry.getValue().asBlock());
-            });
-        });
-
-
-
-        CreativeModeTabCallback.BuildContents.forTab(Identifier.withDefaultNamespace("building_blocks")).register((tab, output) -> {
-            output.accept(ModBlocks.ironBars);
-
-            ModBlocks.copperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
-                output.accept(weatherStateDeferredBlockEntry.getValue().asBlock());
-            });
-
-            ModBlocks.waxedCopperBars.sortedEntries().forEach(weatherStateDeferredBlockEntry -> {
-                output.accept(weatherStateDeferredBlockEntry.getValue().asBlock());
-            });
-        });
+        registrars.creativeModeTabs(ModItems::initializeCreativeTabs);
     }
 
 }
