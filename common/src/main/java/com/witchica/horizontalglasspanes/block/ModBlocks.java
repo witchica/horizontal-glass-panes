@@ -19,22 +19,22 @@ public class ModBlocks {
     public static Map<DyeColor, Block> DYE_TO_PANES = new HashMap<>();
 
     static {
-        DYE_TO_PANES.put(DyeColor.BLACK, Blocks.STAINED_GLASS.black());
-        DYE_TO_PANES.put(DyeColor.BLUE, Blocks.STAINED_GLASS.blue());
-        DYE_TO_PANES.put(DyeColor.BROWN, Blocks.STAINED_GLASS.brown());
-        DYE_TO_PANES.put(DyeColor.CYAN, Blocks.STAINED_GLASS.cyan());
-        DYE_TO_PANES.put(DyeColor.GRAY, Blocks.STAINED_GLASS.gray());
-        DYE_TO_PANES.put(DyeColor.GREEN, Blocks.STAINED_GLASS.green());
-        DYE_TO_PANES.put(DyeColor.LIGHT_BLUE, Blocks.STAINED_GLASS.lightBlue());
-        DYE_TO_PANES.put(DyeColor.LIGHT_GRAY, Blocks.STAINED_GLASS.lightGray());
-        DYE_TO_PANES.put(DyeColor.LIME, Blocks.STAINED_GLASS.lime());
-        DYE_TO_PANES.put(DyeColor.ORANGE, Blocks.STAINED_GLASS.orange());
-        DYE_TO_PANES.put(DyeColor.MAGENTA, Blocks.STAINED_GLASS.magenta());
-        DYE_TO_PANES.put(DyeColor.PINK, Blocks.STAINED_GLASS.pink());
-        DYE_TO_PANES.put(DyeColor.PURPLE, Blocks.STAINED_GLASS.purple());
-        DYE_TO_PANES.put(DyeColor.RED, Blocks.STAINED_GLASS.red());
-        DYE_TO_PANES.put(DyeColor.WHITE, Blocks.STAINED_GLASS.white());
-        DYE_TO_PANES.put(DyeColor.YELLOW, Blocks.STAINED_GLASS.yellow());
+        DYE_TO_PANES.put(DyeColor.BLACK, Blocks.STAINED_GLASS_PANE.black());
+        DYE_TO_PANES.put(DyeColor.BLUE, Blocks.STAINED_GLASS_PANE.blue());
+        DYE_TO_PANES.put(DyeColor.BROWN, Blocks.STAINED_GLASS_PANE.brown());
+        DYE_TO_PANES.put(DyeColor.CYAN, Blocks.STAINED_GLASS_PANE.cyan());
+        DYE_TO_PANES.put(DyeColor.GRAY, Blocks.STAINED_GLASS_PANE.gray());
+        DYE_TO_PANES.put(DyeColor.GREEN, Blocks.STAINED_GLASS_PANE.green());
+        DYE_TO_PANES.put(DyeColor.LIGHT_BLUE, Blocks.STAINED_GLASS_PANE.lightBlue());
+        DYE_TO_PANES.put(DyeColor.LIGHT_GRAY, Blocks.STAINED_GLASS_PANE.lightGray());
+        DYE_TO_PANES.put(DyeColor.LIME, Blocks.STAINED_GLASS_PANE.lime());
+        DYE_TO_PANES.put(DyeColor.ORANGE, Blocks.STAINED_GLASS_PANE.orange());
+        DYE_TO_PANES.put(DyeColor.MAGENTA, Blocks.STAINED_GLASS_PANE.magenta());
+        DYE_TO_PANES.put(DyeColor.PINK, Blocks.STAINED_GLASS_PANE.pink());
+        DYE_TO_PANES.put(DyeColor.PURPLE, Blocks.STAINED_GLASS_PANE.purple());
+        DYE_TO_PANES.put(DyeColor.RED, Blocks.STAINED_GLASS_PANE.red());
+        DYE_TO_PANES.put(DyeColor.WHITE, Blocks.STAINED_GLASS_PANE.white());
+        DYE_TO_PANES.put(DyeColor.YELLOW, Blocks.STAINED_GLASS_PANE.yellow());
     }
 
     public static DiscriminatedBlocks<WeatheringCopper.WeatherState> copperBars;
