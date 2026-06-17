@@ -19,22 +19,22 @@ public class ModBlocks {
     public static Map<DyeColor, Block> DYE_TO_PANES = new HashMap<>();
 
     static {
-        DYE_TO_PANES.put(DyeColor.BLACK, Blocks.BLACK_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.BLUE, Blocks.BLUE_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.BROWN, Blocks.BROWN_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.CYAN, Blocks.CYAN_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.GRAY, Blocks.GRAY_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.GREEN, Blocks.GREEN_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.LIGHT_BLUE, Blocks.LIGHT_BLUE_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.LIME, Blocks.LIME_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.ORANGE, Blocks.ORANGE_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.MAGENTA, Blocks.MAGENTA_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.PINK, Blocks.PINK_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.PURPLE, Blocks.PURPLE_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.RED, Blocks.RED_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.WHITE, Blocks.WHITE_STAINED_GLASS_PANE);
-        DYE_TO_PANES.put(DyeColor.YELLOW, Blocks.YELLOW_STAINED_GLASS_PANE);
+        DYE_TO_PANES.put(DyeColor.BLACK, Blocks.STAINED_GLASS.black());
+        DYE_TO_PANES.put(DyeColor.BLUE, Blocks.STAINED_GLASS.blue());
+        DYE_TO_PANES.put(DyeColor.BROWN, Blocks.STAINED_GLASS.brown());
+        DYE_TO_PANES.put(DyeColor.CYAN, Blocks.STAINED_GLASS.cyan());
+        DYE_TO_PANES.put(DyeColor.GRAY, Blocks.STAINED_GLASS.gray());
+        DYE_TO_PANES.put(DyeColor.GREEN, Blocks.STAINED_GLASS.green());
+        DYE_TO_PANES.put(DyeColor.LIGHT_BLUE, Blocks.STAINED_GLASS.lightBlue());
+        DYE_TO_PANES.put(DyeColor.LIGHT_GRAY, Blocks.STAINED_GLASS.lightGray());
+        DYE_TO_PANES.put(DyeColor.LIME, Blocks.STAINED_GLASS.lime());
+        DYE_TO_PANES.put(DyeColor.ORANGE, Blocks.STAINED_GLASS.orange());
+        DYE_TO_PANES.put(DyeColor.MAGENTA, Blocks.STAINED_GLASS.magenta());
+        DYE_TO_PANES.put(DyeColor.PINK, Blocks.STAINED_GLASS.pink());
+        DYE_TO_PANES.put(DyeColor.PURPLE, Blocks.STAINED_GLASS.purple());
+        DYE_TO_PANES.put(DyeColor.RED, Blocks.STAINED_GLASS.red());
+        DYE_TO_PANES.put(DyeColor.WHITE, Blocks.STAINED_GLASS.white());
+        DYE_TO_PANES.put(DyeColor.YELLOW, Blocks.STAINED_GLASS.yellow());
     }
 
     public static DiscriminatedBlocks<WeatheringCopper.WeatherState> copperBars;
@@ -57,19 +57,21 @@ public class ModBlocks {
         waxedCopperBars = blocks.registerDiscriminated(WeatheringCopper.WeatherState.values(), weatherState -> weatherToName(weatherState, true) + "horizontal_copper_bars", (weatherState, properties) -> new WeatheringHorizontalCopperBarsBlock(properties, weatherState, true), (weatherState, properties) -> BlockBehaviour.Properties.ofFullCopy(getWeatherStateOfBlock(Blocks.COPPER_BARS, weatherState, true))).withDefaultItems().asDiscriminatedBlocks();
     }
 
-    public static Block getWeatherStateOfBlock(WeatheringCopperBlocks weatheringCopperBlocks, WeatheringCopper.WeatherState weatherState, boolean waxed) {
+    public static Block getWeatherStateOfBlock(WeatheringCopperCollection<Block> weatheringCopperBlocks, WeatheringCopper.WeatherState weatherState, boolean waxed) {
+        final WeatheringCopperCollection.ByState<Block> blockByState = waxed ? weatheringCopperBlocks.waxed() : weatheringCopperBlocks.weathering();
+
         switch (weatherState) {
             case UNAFFECTED -> {
-                return waxed ? weatheringCopperBlocks.waxed() : weatheringCopperBlocks.unaffected();
+                return blockByState.unaffected();
             }
             case EXPOSED -> {
-                return waxed ? weatheringCopperBlocks.waxedExposed() : weatheringCopperBlocks.exposed();
+                return blockByState.exposed();
             }
             case OXIDIZED -> {
-                return waxed ? weatheringCopperBlocks.waxedOxidized() : weatheringCopperBlocks.oxidized();
+                return blockByState.oxidized();
             }
             case WEATHERED -> {
-                return waxed ? weatheringCopperBlocks.waxedWeathered() : weatheringCopperBlocks.weathered();
+                return blockByState.weathered();
             }
         }
 

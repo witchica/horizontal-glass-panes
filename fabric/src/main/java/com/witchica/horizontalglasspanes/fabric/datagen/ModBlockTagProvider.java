@@ -22,19 +22,19 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
-            valueLookupBuilder(ModBlockTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asBlock());
+            tag(ModBlockTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asResourceKey());
         });
 
         ModBlocks.copperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
-            valueLookupBuilder(ModBlockTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlock());
-            valueLookupBuilder(MINEABLE_PICKAXE).add(weatherStateDeferredBlock.getValue().asBlock());
+            tag(ModBlockTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asResourceKey());
+            tag(MINEABLE_PICKAXE).add(weatherStateDeferredBlock.getValue().asResourceKey());
         });
 
         ModBlocks.waxedCopperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
-            valueLookupBuilder(ModBlockTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlock());
-            valueLookupBuilder(MINEABLE_PICKAXE).add(weatherStateDeferredBlock.getValue().asBlock());
+            tag(ModBlockTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asResourceKey());
+            tag(MINEABLE_PICKAXE).add(weatherStateDeferredBlock.getValue().asResourceKey());
         });
 
-        valueLookupBuilder(MINEABLE_PICKAXE).add(ModBlocks.ironBars.asBlock());
+        tag(MINEABLE_PICKAXE).add(ModBlocks.ironBars.asResourceKey());
     }
 }

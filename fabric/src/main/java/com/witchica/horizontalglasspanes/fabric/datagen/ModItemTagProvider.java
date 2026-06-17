@@ -18,15 +18,15 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider lookup) {
         ModBlocks.colorfulPanes.sortedEntries().forEach(dyeColorDeferredBlockEntry -> {
-            valueLookupBuilder(ModItemTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asItem());
+            tag(ModItemTags.COLORFUL_HORIZONTAL_PANES).add(dyeColorDeferredBlockEntry.getValue().asBlockItemId().item());
         });
 
         ModBlocks.copperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
-            valueLookupBuilder(ModItemTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asItem());
+            tag(ModItemTags.COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlockItemId().item());
         });
 
         ModBlocks.waxedCopperBars.sortedEntries().forEach((weatherStateDeferredBlock) -> {
-            valueLookupBuilder(ModItemTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asItem());
+            tag(ModItemTags.WAXED_COPPER_HORIZONTAL_BARS).add(weatherStateDeferredBlock.getValue().asBlockItemId().item());
         });
     }
 }

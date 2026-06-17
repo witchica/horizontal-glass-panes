@@ -1,3 +1,1 @@
-- Updated to 26.1.2
-- Added Copper Bar variants
-- New Iron/Copper Bar model to match vanilla model
+- Updated to 26.2
